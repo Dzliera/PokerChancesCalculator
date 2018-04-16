@@ -1,0 +1,174 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{01B9DE46-EBB8-42A3-8E3F-9481B6142173}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>PokerChancesCalculator</RootNamespace>
+    <AssemblyName>PokerChancesCalculator</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Printing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="lib\Classes\Card.cs" />
+    <Compile Include="lib\Classes\CardSet.cs" />
+    <Compile Include="lib\Classes\Combination.cs" />
+    <Compile Include="lib\Classes\Combinations\TwoPairs.cs" />
+    <Compile Include="lib\Classes\Data.cs" />
+    <Compile Include="lib\Classes\Combinations\Flush.cs" />
+    <Compile Include="lib\Classes\Combinations\FourOfAKind.cs" />
+    <Compile Include="lib\Classes\Combinations\FullHouse.cs" />
+    <Compile Include="lib\Classes\Combinations\HighCard.cs" />
+    <Compile Include="lib\Classes\Combinations\Pair.cs" />
+    <Compile Include="lib\Classes\Combinations\RoyalFlush.cs" />
+    <Compile Include="lib\Classes\Combinations\Straight.cs" />
+    <Compile Include="lib\Classes\Combinations\StraightFlush.cs" />
+    <Compile Include="lib\Classes\Combinations\ThreeOfAKind.cs" />
+    <Compile Include="lib\Enums\CardSuit.cs" />
+    <Compile Include="lib\Enums\CardRank.cs" />
+    <Compile Include="lib\Enums\CombinationType.cs" />
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\cards\1.png" />
+    <Resource Include="images\cards\10.png" />
+    <Resource Include="images\cards\11.png" />
+    <Resource Include="images\cards\12.png" />
+    <Resource Include="images\cards\13.png" />
+    <Resource Include="images\cards\14.png" />
+    <Resource Include="images\cards\15.png" />
+    <Resource Include="images\cards\16.png" />
+    <Resource Include="images\cards\17.png" />
+    <Resource Include="images\cards\18.png" />
+    <Resource Include="images\cards\19.png" />
+    <Resource Include="images\cards\2.png" />
+    <Resource Include="images\cards\20.png" />
+    <Resource Include="images\cards\21.png" />
+    <Resource Include="images\cards\22.png" />
+    <Resource Include="images\cards\23.png" />
+    <Resource Include="images\cards\24.png" />
+    <Resource Include="images\cards\25.png" />
+    <Resource Include="images\cards\26.png" />
+    <Resource Include="images\cards\27.png" />
+    <Resource Include="images\cards\28.png" />
+    <Resource Include="images\cards\29.png" />
+    <Resource Include="images\cards\3.png" />
+    <Resource Include="images\cards\30.png" />
+    <Resource Include="images\cards\31.png" />
+    <Resource Include="images\cards\32.png" />
+    <Resource Include="images\cards\33.png" />
+    <Resource Include="images\cards\34.png" />
+    <Resource Include="images\cards\35.png" />
+    <Resource Include="images\cards\36.png" />
+    <Resource Include="images\cards\37.png" />
+    <Resource Include="images\cards\38.png" />
+    <Resource Include="images\cards\39.png" />
+    <Resource Include="images\cards\4.png" />
+    <Resource Include="images\cards\40.png" />
+    <Resource Include="images\cards\41.png" />
+    <Resource Include="images\cards\42.png" />
+    <Resource Include="images\cards\43.png" />
+    <Resource Include="images\cards\44.png" />
+    <Resource Include="images\cards\45.png" />
+    <Resource Include="images\cards\46.png" />
+    <Resource Include="images\cards\47.png" />
+    <Resource Include="images\cards\48.png" />
+    <Resource Include="images\cards\49.png" />
+    <Resource Include="images\cards\5.png" />
+    <Resource Include="images\cards\50.png" />
+    <Resource Include="images\cards\51.png" />
+    <Resource Include="images\cards\52.png" />
+    <Resource Include="images\cards\6.png" />
+    <Resource Include="images\cards\7.png" />
+    <Resource Include="images\cards\8.png" />
+    <Resource Include="images\cards\9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\cards\backside.jpg" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
