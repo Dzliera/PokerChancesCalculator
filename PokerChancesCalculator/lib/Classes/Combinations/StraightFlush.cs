@@ -1,4 +1,5 @@
-﻿using static PokerChancesCalculator.Data;
+﻿using System;
+using static PokerChancesCalculator.Data;
 
 namespace PokerChancesCalculator
 {
@@ -44,17 +45,9 @@ namespace PokerChancesCalculator
 
             Card[] flushCards = flush.Cards;
             Combinations[CombinationType.Flush] = flushCards;
-
-            for (int i = 0; i < flushCards.Length - 1; i++)
-            {
-                if ((int)flushCards[i + 1].Rank - (int)flushCards[i].Rank != 1 ||
-                    (int)flushCards[i + 1].Rank - (int)flushCards[i].Rank != 13)
-                {
-                    return null;
-                }
-            }
-
-            return new Combination(Type, flushCards);
+            var comb = new Straight(null).Check(flushCards);
+            if (comb == null) return null;
+            return null;
         }
     }
 }
