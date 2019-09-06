@@ -29,7 +29,7 @@
             }
             Data.Combinations[CombinationType.StraightFlush] = straightFlush.Cards;
 
-            if (cards[1].Rank == CardRank.Teen) return new Combination(Type, cards);
+            if (straightFlush.Cards[0].Rank == CardRank.Ace && straightFlush.Cards[4].Rank == CardRank.King) return new Combination(Type, cards);
 
             return null;
         }

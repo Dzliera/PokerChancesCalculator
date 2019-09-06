@@ -24,18 +24,28 @@ namespace PokerChancesCalculator
         /// </returns>
         public override Combination Check(Card[] cards)
         {
-            int combCount = 1;
+            //int combCount = 1;
 
+            var crds = new List<Card>();
+            crds.Add(cards[0]);
+            
             for (int i = 0; i < cards.Length - 1; i++)
             {
-                if ((int)cards[i + 1].Rank - (int)cards[i].Rank != 1 &&
-                    (int)cards[i + 1].Rank - (int)cards[i].Rank != 13)
-                {
-                    combCount = 1;
-                }
+                if (cards[i + 1].Rank == cards[i].Rank)continue;
 
-                combCount++;
-                if (combCount == 5) return new Combination(Type, cards);
+                    if ((int)cards[i + 1].Rank - (int)cards[i].Rank != 1)
+                    {
+                        crds.Clear();
+                    }
+
+                crds.Add(cards[i + 1]);
+                if (crds.Count == 5) return new Combination(Type, crds.ToArray());
+            }
+
+            if (crds.Count == 4 && crds[3].Rank == CardRank.King && cards[0].Rank == CardRank.Ace)
+            {
+                crds.Add(cards[0]);
+                return new Combination(Type, crds.ToArray());
             }
 
             return null;

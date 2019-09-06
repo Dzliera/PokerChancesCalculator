@@ -47,7 +47,7 @@ namespace PokerChancesCalculator
             Combinations[CombinationType.Flush] = flushCards;
             var comb = new Straight(null).Check(flushCards);
             if (comb == null) return null;
-            return null;
+            return new Combination(CombinationType.StraightFlush, flushCards);
         }
     }
 }
